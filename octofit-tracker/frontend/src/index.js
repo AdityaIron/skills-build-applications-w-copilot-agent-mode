@@ -1,5 +1,7 @@
 
 
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 // Log the Codespace name for debugging
 console.log('REACT_APP_CODESPACE_NAME:', process.env.REACT_APP_CODESPACE_NAME);
 
