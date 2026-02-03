@@ -17,13 +17,28 @@ const Leaderboard = () => {
   }, [apiUrl]);
 
   return (
-    <div>
-      <h2>Leaderboard</h2>
-      <ul>
-        {leaderboards.map(lb => (
-          <li key={lb._id || lb.id}>{lb.team?.name || 'Unknown Team'}: {lb.points} points</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-header">
+        <h2 className="h4">Leaderboard</h2>
+      </div>
+      <div className="card-body">
+        <table className="table table-striped table-bordered">
+          <thead className="table-dark">
+            <tr>
+              <th>Team</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {leaderboards.map(lb => (
+              <tr key={lb._id || lb.id}>
+                <td>{lb.team?.name || 'Unknown Team'}</td>
+                <td>{lb.points}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

@@ -17,13 +17,32 @@ const Users = () => {
   }, [apiUrl]);
 
   return (
-    <div>
-      <h2>Users</h2>
-      <ul>
-        {users.map(user => (
-          <li key={user._id || user.id}>{user.name} ({user.email})</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-header">
+        <h2 className="h4">Users</h2>
+      </div>
+      <div className="card-body">
+        <table className="table table-striped table-bordered">
+          <thead className="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Team</th>
+              <th>Superhero</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map(user => (
+              <tr key={user._id || user.id}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.team?.name || ''}</td>
+                <td>{user.is_superhero ? 'Yes' : 'No'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
